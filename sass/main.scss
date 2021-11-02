@@ -1,0 +1,9 @@
+@import "mixins";
+@import "./elements/header";
+@import "./elements/mainsection";
+@import "./elements/footer";
+
+* {
+  margin: 0;
+  padding: 0;
+}
