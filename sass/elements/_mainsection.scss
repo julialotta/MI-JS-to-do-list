@@ -1,0 +1,73 @@
+main {
+  background-color: $red;
+  color: $pink;
+  height: 100%;
+  font-family: $p-font;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .container {
+    background-color: $green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+    padding: 50px;
+  }
+
+  .todoinput::placeholder {
+    color: $red;
+  }
+
+  div {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      font-size: 30px;
+    }
+  }
+  button {
+    cursor: pointer;
+    background-color: $pink;
+    color: $red;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+  }
+  label {
+    padding: 40px 0 20px 0;
+  }
+
+  input {
+    background-color: $pink;
+    color: $green;
+    font-family: $p-font;
+    font-size: 25px;
+    border: $yellow 2px solid;
+    border-radius: 10px;
+    height: 40px;
+    width: 250px;
+    display: flex;
+    text-align: center;
+  }
+  select {
+    color: $red;
+    background-color: $pink;
+  }
+  .list {
+    li {
+      font-family: $p-font;
+      cursor: pointer;
+    }
+  }
+}

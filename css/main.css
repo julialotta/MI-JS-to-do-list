@@ -1,6 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Monofett&family=Neucha&family=Zen+Kurenaido&display=swap");
+header {
+  background-color: #1a61c5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  flex-wrap: wrap;
+}
+header h1 {
+  font-family: "Monofett", cursive;
+  font-size: 20px;
+  color: #f59db5;
+}
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 50px;
+  }
+}
+@media (min-width: 992px) {
+  header h1 {
+    font-size: 90px;
+  }
+}
+
+main {
+  background-color: #ee4038;
+  color: #f59db5;
+  height: 100%;
+  font-family: "Zen Kurenaido", sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main .container {
+  background-color: #006752;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px;
+  padding: 50px;
+}
+main .todoinput::placeholder {
+  color: #ee4038;
+}
+main div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  font-size: 30px;
+}
+main button {
+  cursor: pointer;
+  background-color: #f59db5;
+  color: #ee4038;
+  height: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+main label {
+  padding: 40px 0 20px 0;
+}
+main input {
+  background-color: #f59db5;
+  color: #006752;
+  font-family: "Zen Kurenaido", sans-serif;
+  font-size: 25px;
+  border: #f2c317 2px solid;
+  border-radius: 10px;
+  height: 40px;
+  width: 250px;
+  display: flex;
+  text-align: center;
+}
+main select {
+  color: #ee4038;
+  background-color: #f59db5;
+}
+main .list li {
+  font-family: "Zen Kurenaido", sans-serif;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #1a61c5;
+  color: #f59db5;
+  font-family: "Zen Kurenaido", sans-serif;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
-
-/*# sourceMappingURL=main.css.map */
