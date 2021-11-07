@@ -5,16 +5,16 @@ header {
   align-items: center;
   justify-content: center;
   height: 100px;
-  flex-wrap: wrap;
 }
 header h1 {
   font-family: "Monofett", cursive;
-  font-size: 20px;
+  font-size: 40px;
   color: #f59db5;
+  margin: 0 10px;
 }
 @media (min-width: 768px) {
   header h1 {
-    font-size: 50px;
+    font-size: 90px;
   }
 }
 @media (min-width: 992px) {
@@ -26,16 +26,19 @@ header h1 {
 main {
   background-color: #ee4038;
   color: #f59db5;
-  height: 100%;
+  height: 100vh;
   font-family: "Zen Kurenaido", sans-serif;
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 main .container {
   background-color: #006752;
   display: flex;
-  justify-content: center;
+  height: 70vh;
+  width: 70%;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   margin: 50px;
@@ -79,14 +82,6 @@ main input {
   width: 250px;
   display: flex;
   text-align: center;
-}
-main select {
-  color: #ee4038;
-  background-color: #f59db5;
-}
-main .list li {
-  font-family: "Zen Kurenaido", sans-serif;
-  cursor: pointer;
 }
 
 footer {

@@ -1,16 +1,19 @@
 main {
   background-color: $red;
   color: $pink;
-  height: 100%;
+  height: 100vh;
   font-family: $p-font;
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 
   .container {
     background-color: $green;
     display: flex;
-    justify-content: center;
+    height: 70vh;
+    width: 70%;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
     margin: 50px;
@@ -59,15 +62,5 @@ main {
     width: 250px;
     display: flex;
     text-align: center;
-  }
-  select {
-    color: $red;
-    background-color: $pink;
-  }
-  .list {
-    li {
-      font-family: $p-font;
-      cursor: pointer;
-    }
   }
 }
