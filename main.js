@@ -1,5 +1,6 @@
 window.onload = function () { 
 html ();
+document.getElementById("add").addEventListener("click", addStuff);
 }
 
 function html () {
@@ -50,10 +51,6 @@ ul.className = "list";
 ul.id = "list";
 
 
-
-
-
-
 let footer = document.createElement("footer");
 document.body.appendChild(footer);
 let footerP = document.createElement("p");
@@ -61,4 +58,12 @@ footer.appendChild(footerP);
 footerP.innerHTML = "This app is created by Julia-Lotta";
 
 }
-//Stuff I need to do today
+
+function addStuff() {
+let list = document.createElement("li");
+let task = document.getElementById("todoinput");
+let ul = document.getElementById("list");
+ul.appendChild(list);
+list.innerHTML = task.value;
+task.value = "";
+}
