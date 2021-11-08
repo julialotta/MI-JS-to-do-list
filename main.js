@@ -1,6 +1,7 @@
 window.onload = function () { 
 html ();
 document.getElementById("add").addEventListener("click", addStuff);
+localStorages ();
 }
 
 function html () {
@@ -25,7 +26,6 @@ let label = document.createElement("label");
 div.appendChild(label);
 label.innerHTML = "TO DO:";
 label.setAttribute("for", "todoinput");
- //<label for="todoinput">TO DO:</label>
 
 let input = document.createElement("input");
 div.appendChild(input);
@@ -60,10 +60,19 @@ footerP.innerHTML = "This app is created by Julia-Lotta";
 }
 
 function addStuff() {
-let list = document.createElement("li");
+let list = [];
 let task = document.getElementById("todoinput");
+list.push(task.value);
+console.log(list);
 let ul = document.getElementById("list");
-ul.appendChild(list);
-list.innerHTML = task.value;
-task.value = "";
+//ul.innerHTML = task.value;
+task.value = " ";
+    list.forEach(function(n){
+        ul.innerHTML += "<li>"+n+"</li>";
+})
+}
+
+function localStorages() {
+    console.log("hej");
+
 }
