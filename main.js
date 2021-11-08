@@ -1,10 +1,3 @@
-window.onload = function () { 
-html ();
-document.getElementById("add").addEventListener("click", addStuff);
-localStorages ();
-}
-
-function html () {
 let header = document.createElement("header");
 document.body.appendChild(header);
 let headline = document.createElement("h1");
@@ -57,22 +50,35 @@ let footerP = document.createElement("p");
 footer.appendChild(footerP);
 footerP.innerHTML = "This app is created by Julia-Lotta";
 
-}
+document.getElementById("add").addEventListener("click", addStuff);
+
+let list = ["Vara snäll", "Mata katten", "Studera Javascript"];
+addCurrent();
+list.push(list);
 
 function addStuff() {
-let list = [];
-let task = document.getElementById("todoinput");
-list.push(task.value);
-console.log(list);
-let ul = document.getElementById("list");
-//ul.innerHTML = task.value;
-task.value = " ";
-    list.forEach(function(n){
-        ul.innerHTML += "<li>"+n+"</li>";
-})
+list.push(input.value);
+input.value = "";
+myList ();
 }
 
-function localStorages() {
-    console.log("hej");
-
+function myList () {
+ul.innerHTML= "";
+ list.forEach(function(n,i){
+        ul.innerHTML += "<li>"+n+"<a onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
+    })
 }
+
+function deleteItem(i){
+    list.splice(i,1);
+    myList();
+}
+
+function editItem(i){
+    let newValue = prompt("Ändrade du dig? Ingen fara");
+    list.splice(i,1,newValue);
+    myList();
+}
+
+// att göra:
+// - strukturera i projeketet, selectors, event listeners och functios var för sig

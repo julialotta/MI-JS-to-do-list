@@ -26,7 +26,6 @@ header h1 {
 main {
   background-color: #ee4038;
   color: #f59db5;
-  height: 100vh;
   font-family: "Zen Kurenaido", sans-serif;
   display: flex;
   align-items: center;
@@ -36,8 +35,9 @@ main {
 main .container {
   background-color: #006752;
   display: flex;
-  height: 70vh;
   width: 70%;
+  min-height: 70vh;
+  max-height: max-content;
   justify-content: start;
   align-items: center;
   flex-direction: column;
@@ -82,6 +82,14 @@ main input {
   width: 250px;
   display: flex;
   text-align: center;
+}
+main ul li {
+  font-size: 22px;
+  margin-top: 15px;
+}
+main ul li a {
+  padding-left: 15px;
+  cursor: pointer;
 }
 
 footer {

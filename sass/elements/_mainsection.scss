@@ -1,7 +1,6 @@
 main {
   background-color: $red;
   color: $pink;
-  height: 100vh;
   font-family: $p-font;
   display: flex;
   align-items: center;
@@ -11,8 +10,9 @@ main {
   .container {
     background-color: $green;
     display: flex;
-    height: 70vh;
     width: 70%;
+    min-height: 70vh;
+    max-height: max-content;
     justify-content: start;
     align-items: center;
     flex-direction: column;
@@ -62,5 +62,15 @@ main {
     width: 250px;
     display: flex;
     text-align: center;
+  }
+  ul {
+    li {
+      font-size: 22px;
+      margin-top: 15px;
+      a {
+        padding-left: 15px;
+        cursor: pointer;
+      }
+    }
   }
 }
