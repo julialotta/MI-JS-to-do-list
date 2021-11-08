@@ -54,7 +54,13 @@ document.getElementById("add").addEventListener("click", addStuff);
 
 let list = ["Vara snäll", "Mata katten", "Studera Javascript"];
 addCurrent();
-list.push(list);
+
+function addCurrent() {
+    for (let i =0; i < list.length; i++) {
+    console.log(list[i]);
+    ul.innerHTML += "<li>"+list[i]+"<a onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
+    }
+}
 
 function addStuff() {
 list.push(input.value);
@@ -81,4 +87,4 @@ function editItem(i){
 }
 
 // att göra:
-// - strukturera i projeketet, selectors, event listeners och functios var för sig
+// - strukturera i projeketet, selectors, event listeners och functios var för sig... 
