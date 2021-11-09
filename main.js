@@ -73,15 +73,17 @@ console.log(list);
 function createHtml() {
     ul.innerHTML= "";
     for (let i = 0; i < list.length; i++) {
-        ul.innerHTML += "<li onclick='checkItem'>"+list[i]+"<a id='taskItem' onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
+        ul.innerHTML += "<li onclick='checkItem'>"+list[i].task+"<a id='taskItem' onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
     }
 }
 
-
 function addStuff() {
-    list.push(input.value);
+    let newTask = input.value;
+    let listObject = new Todos (newTask);
+    list.push(listObject);
     input.value = "";
     updateLocal ();
+    console.log(list);
 }
 
 function updateLocal () {
@@ -101,11 +103,6 @@ function deleteItem(i){
     updateLocal ();
 }
 
-function editItem(i){
-    let newValue = prompt("Ändrade du dig? Ingen fara");
-    list.splice(i,1,newValue);
-    updateLocal ();
-}
 
 // att göra:
 // - strukturera i projeketet, selectors, event listeners och functios var för sig... 
