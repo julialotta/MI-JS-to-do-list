@@ -36,7 +36,7 @@ button.type = "submit";
 
 let h2 = document.createElement("h2");
 divContainer.appendChild(h2);
-h2.innerHTML = "My list:"
+h2.innerHTML = "My list:";
 
 let ul = document.createElement("ul");
 divContainer.appendChild(ul);
@@ -52,39 +52,62 @@ footerP.innerHTML = "This app is created by Julia-Lotta";
 
 document.getElementById("add").addEventListener("click", addStuff);
 
-let list = ["Vara snäll", "Mata katten", "Studera Javascript"];
-addCurrent();
-
-function addCurrent() {
-    for (let i =0; i < list.length; i++) {
-    console.log(list[i]);
-    ul.innerHTML += "<li>"+list[i]+"<a onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
+class Todos {
+    constructor (task, checked) {
+    this.task = task;
+    this.checked = checked;
     }
 }
 
-function addStuff() {
-list.push(input.value);
-input.value = "";
-myList ();
+let task1 = new Todos ("Vara snäll", false);
+let task2 = new Todos ("Mata katten", false);
+let task3 = new Todos ("Koka kaffe", false);
+
+let list = JSON.parse(localStorage.getItem("savedList")) || [task1, task2, task3];
+
+
+createHtml();
+console.log(list);
+
+
+function createHtml() {
+    ul.innerHTML= "";
+    for (let i = 0; i < list.length; i++) {
+        ul.innerHTML += "<li onclick='checkItem'>"+list[i]+"<a id='taskItem' onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
+    }
 }
 
-function myList () {
-ul.innerHTML= "";
- list.forEach(function(n,i){
-        ul.innerHTML += "<li>"+n+"<a onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
-    })
+
+function addStuff() {
+    list.push(input.value);
+    input.value = "";
+    updateLocal ();
 }
+
+function updateLocal () {
+    let listastext = JSON.stringify(list);
+    localStorage.setItem("savedList", listastext);  
+    createHtml();
+}
+
+
+function checkItem() {
+    getElementById("taskItem").className = "checked";
+}
+
 
 function deleteItem(i){
     list.splice(i,1);
-    myList();
+    updateLocal ();
 }
 
 function editItem(i){
     let newValue = prompt("Ändrade du dig? Ingen fara");
     list.splice(i,1,newValue);
-    myList();
+    updateLocal ();
 }
 
 // att göra:
 // - strukturera i projeketet, selectors, event listeners och functios var för sig... 
+// Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen.
+// Kunna sortera ordningen på dina todos
