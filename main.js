@@ -52,13 +52,13 @@ footerP.innerHTML = "This app is created by Julia-Lotta";
 
 let add = document.getElementById("add");
 add.addEventListener("click", addStuff);
-add.addEventListener("keypress", function (event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        add.addStuff();
-    }
-});
+input.addEventListener("keydown", keyPress);
 
+function keyPress (e) {
+    if (e.keyCode == "13"){
+        addStuff();
+}
+}
 
 class Todos {
     constructor (task, checked) {
@@ -75,7 +75,7 @@ let list = JSON.parse(localStorage.getItem("savedList")) || [task1, task2, task3
 
 createHtml();
 
-function createHtml() {
+function createHtml(key) {
     ul.innerHTML= "";
     for (let i = 0; i < list.length; i++) {
         let li = document.createElement("li");
@@ -86,7 +86,6 @@ function createHtml() {
         li.innerHTML += list[i].task + " "+ cross.outerHTML;
     }
 document.getElementById("delete").addEventListener("click", deleteItem);
-
 }
 
 function deleteItem(i){
