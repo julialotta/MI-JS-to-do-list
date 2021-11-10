@@ -83,9 +83,13 @@ main input {
   display: flex;
   text-align: center;
 }
+main #trueitem {
+  text-decoration: line-through;
+}
 main ul li {
   font-size: 22px;
   margin-top: 15px;
+  cursor: pointer;
 }
 main ul li a {
   padding-left: 15px;

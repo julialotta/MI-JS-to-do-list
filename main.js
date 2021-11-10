@@ -50,7 +50,15 @@ let footerP = document.createElement("p");
 footer.appendChild(footerP);
 footerP.innerHTML = "This app is created by Julia-Lotta";
 
-document.getElementById("add").addEventListener("click", addStuff);
+let add = document.getElementById("add");
+add.addEventListener("click", addStuff);
+add.addEventListener("keypress", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        add.addStuff();
+    }
+});
+
 
 class Todos {
     constructor (task, checked) {
@@ -65,17 +73,27 @@ let task3 = new Todos ("Koka kaffe", false);
 
 let list = JSON.parse(localStorage.getItem("savedList")) || [task1, task2, task3];
 
-
 createHtml();
-console.log(list);
-
 
 function createHtml() {
     ul.innerHTML= "";
     for (let i = 0; i < list.length; i++) {
-        ul.innerHTML += "<li onclick='checkItem'>"+list[i].task+"<a id='taskItem' onclick='editItem("+i+")'><i>edit</i></a><a onclick='deleteItem("+i+")'>&times;</a></li>";
+        let li = document.createElement("li");
+        ul.appendChild(li);
+        let cross = document.createElement("a");
+        cross.innerHTML = "&times;";
+        cross.id = "delete";
+        li.innerHTML += list[i].task + " "+ cross.outerHTML;
     }
+document.getElementById("delete").addEventListener("click", deleteItem);
+
 }
+
+function deleteItem(i){
+    list.splice(i,1);
+    updateLocal ();
+}
+
 
 function addStuff() {
     let newTask = input.value;
@@ -93,18 +111,9 @@ function updateLocal () {
 }
 
 
-function checkItem() {
-    getElementById("taskItem").className = "checked";
-}
-
-
-function deleteItem(i){
-    list.splice(i,1);
-    updateLocal ();
-}
-
 
 // att göra:
 // - strukturera i projeketet, selectors, event listeners och functios var för sig... 
+// strukturea skapandet av <li> och ändra så att det är snyggare kod
 // Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen.
 // Kunna sortera ordningen på dina todos

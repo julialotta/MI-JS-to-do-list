@@ -63,10 +63,16 @@ main {
     display: flex;
     text-align: center;
   }
+
+  #trueitem {
+    text-decoration: line-through;
+  }
+
   ul {
     li {
       font-size: 22px;
       margin-top: 15px;
+      cursor: pointer;
       a {
         padding-left: 15px;
         cursor: pointer;
