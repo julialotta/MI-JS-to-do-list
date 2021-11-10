@@ -1,3 +1,5 @@
+// skapandet av HTML.
+
 let header = document.createElement("header");
 document.body.appendChild(header);
 let headline = document.createElement("h1");
@@ -50,15 +52,8 @@ let footerP = document.createElement("p");
 footer.appendChild(footerP);
 footerP.innerHTML = "This app is created by Julia-Lotta";
 
-let add = document.getElementById("add");
-add.addEventListener("click", addStuff);
-input.addEventListener("keydown", keyPress);
 
-function keyPress (e) {
-    if (e.keyCode == "13"){
-        addStuff();
-}
-}
+//Skapandet av klasser
 
 class Todos {
     constructor (task, checked) {
@@ -73,9 +68,24 @@ let task3 = new Todos ("Koka kaffe", false);
 
 let list = JSON.parse(localStorage.getItem("savedList")) || [task1, task2, task3];
 
+// Anropningar av funktioner:
+
+let add = document.getElementById("add");
+add.addEventListener("click", addToList);
+input.addEventListener("keydown", pressEnter);
+
 createHtml();
 
-function createHtml(key) {
+
+function pressEnter (e) {
+    if (e.keyCode == "13"){
+        e.preventDefault();
+        addToList();
+}
+}
+
+
+function createHtml() {
     ul.innerHTML= "";
     for (let i = 0; i < list.length; i++) {
         let li = document.createElement("li");
@@ -83,27 +93,36 @@ function createHtml(key) {
         let cross = document.createElement("a");
         cross.innerHTML = "&times;";
         cross.id = "delete";
-        li.innerHTML += list[i].task + " "+ cross.outerHTML;
+        cross.addEventListener("click", deleteItem);
+        li.addEventListener("click",checkItem);
+        li.id = "false";
+        li.innerHTML += list[i].task;
+        li.appendChild(cross);
     }
-document.getElementById("delete").addEventListener("click", deleteItem);
 }
+
 
 function deleteItem(i){
     list.splice(i,1);
-    updateLocal ();
+    updateLocalStorage ();
+}
+
+function checkItem () {
+    console.log("check check!");
+    updateLocalStorage ();
 }
 
 
-function addStuff() {
+function addToList() {
     let newTask = input.value;
     let listObject = new Todos (newTask);
+    listObject.checked = false; 
     list.push(listObject);
     input.value = "";
-    updateLocal ();
-    console.log(list);
+    updateLocalStorage ();
 }
 
-function updateLocal () {
+function updateLocalStorage () {
     let listastext = JSON.stringify(list);
     localStorage.setItem("savedList", listastext);  
     createHtml();
@@ -113,6 +132,5 @@ function updateLocal () {
 
 // att göra:
 // - strukturera i projeketet, selectors, event listeners och functios var för sig... 
-// strukturea skapandet av <li> och ändra så att det är snyggare kod
 // Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen.
 // Kunna sortera ordningen på dina todos
