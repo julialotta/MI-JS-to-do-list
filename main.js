@@ -28,12 +28,15 @@ input.className ="todoinput";
 input.type ="text";
 input.placeholder = "write stuff here..."
 
-let button = document.createElement("button");
-div.appendChild(button);
-button.innerHTML = "Add to list";
-button.id = "add";
-button.type = "submit";
+let addbutton = document.createElement("button");
+div.appendChild(addbutton);
+addbutton.innerHTML = "Add to list";
+addbutton.id = "add";
 
+let sortbutton = document.createElement("button");
+div.appendChild(sortbutton);
+sortbutton.innerHTML= "Sort A-Z";
+sortbutton.id = "sort";
 
 let h2 = document.createElement("h2");
 divContainer.appendChild(h2);
@@ -71,6 +74,7 @@ let list = JSON.parse(localStorage.getItem("savedList")) || [task1, task2, task3
 
 let add = document.getElementById("add");
 add.addEventListener("click", addToList);
+sort.addEventListener("click", sortList);
 input.addEventListener("keydown", pressEnter);
 
 createHtml();
@@ -133,6 +137,17 @@ function addToList() {
 }
 }
 
+function sortList () {
+   list.sort((a, b) => {
+      if (a.task.toLowerCase() > b.task.toLowerCase()) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    updateLocalStorage();
+}
+
 function updateLocalStorage () {
     let listastext = JSON.stringify(list);
     localStorage.setItem("savedList", listastext);  
@@ -143,5 +158,4 @@ function updateLocalStorage () {
 
 // att göra:
 // - strukturera i projeketet, selectors, event listeners och functios var för sig... 
-// Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen.
 // Kunna sortera ordningen på dina todos
