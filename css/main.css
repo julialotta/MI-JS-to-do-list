@@ -83,8 +83,9 @@ main input {
   display: flex;
   text-align: center;
 }
-main #trueitem {
+main #checked {
   text-decoration: line-through;
+  color: grey;
 }
 main ul li {
   font-size: 22px;

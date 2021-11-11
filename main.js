@@ -1,5 +1,4 @@
 // skapandet av HTML.
-
 let header = document.createElement("header");
 document.body.appendChild(header);
 let headline = document.createElement("h1");
@@ -91,35 +90,47 @@ function createHtml() {
         let li = document.createElement("li");
         ul.appendChild(li);
         let cross = document.createElement("a");
+        let p = document.createElement("p");
+        li.appendChild(p);
         cross.innerHTML = "&times;";
         cross.id = "delete";
-        cross.addEventListener("click", deleteItem);
-        li.addEventListener("click",checkItem);
-        li.id = "false";
-        li.innerHTML += list[i].task;
+        if (list[i].checked === true) {
+            p.id = "checked";
+        }
+        p.innerHTML += list[i].task;
         li.appendChild(cross);
+        cross.addEventListener("click", () => {
+            deleteItem (i);
+        });
+        li.addEventListener("click", () => {
+            checkItem (i);
+        });
+
     }
 }
 
-
-function deleteItem(i){
-    list.splice(i,1);
-    updateLocalStorage ();
+function checkItem (i) {
+    list[i].checked = !list[i].checked;
+    console.log(list[i].checked);
+    updateLocalStorage();
 }
 
-function checkItem () {
-    console.log("check check!");
-    updateLocalStorage ();
+function deleteItem (i) {
+list.splice(i,1);
+updateLocalStorage();
 }
 
 
 function addToList() {
+        if (input.value.length == 0) {
+        } else {
     let newTask = input.value;
     let listObject = new Todos (newTask);
     listObject.checked = false; 
     list.push(listObject);
     input.value = "";
     updateLocalStorage ();
+}
 }
 
 function updateLocalStorage () {
