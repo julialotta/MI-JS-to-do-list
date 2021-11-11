@@ -87,6 +87,15 @@ main #checked {
   text-decoration: line-through;
   color: grey;
 }
+main .prioone {
+  color: red;
+}
+main .priotwo {
+  color: aqua;
+}
+main .priothree {
+  color: green;
+}
 main ul li {
   font-size: 22px;
   margin-top: 15px;
