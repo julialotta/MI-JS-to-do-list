@@ -102,7 +102,7 @@ function createHtml() {
         cross.addEventListener("click", () => {
             deleteItem (i);
         });
-        li.addEventListener("click", () => {
+        p.addEventListener("click", () => {
             checkItem (i);
         });
 
