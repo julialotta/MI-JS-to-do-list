@@ -33,13 +33,13 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
 }
 main .container {
   background-color: #c4afe8;
   display: flex;
-  width: 50%;
+  width: 75%;
   min-height: 70vh;
-  max-height: max-content;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -49,7 +49,7 @@ main .container {
 }
 main .innercontainer {
   background-color: #f59db5;
-  width: 80%;
+  width: 90%;
   border-radius: 10px;
   height: 80%;
 }
