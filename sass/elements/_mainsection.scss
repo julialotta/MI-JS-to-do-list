@@ -1,23 +1,32 @@
 main {
-  background-color: $red;
-  color: $pink;
+  background-color: $blue;
+  color: $red;
   font-family: $p-font;
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 
   .container {
-    background-color: $green;
+    background-color: $purple;
     display: flex;
-    width: 70%;
+    width: 50%;
     min-height: 70vh;
     max-height: max-content;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: 50px;
-    padding: 50px;
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  .innercontainer {
+    background-color: $pink;
+    width: 80%;
+    border-radius: 10px;
+    height: 80%;
   }
 
   div {
@@ -25,66 +34,80 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       flex-direction: column;
       padding: 20px;
       font-size: 30px;
     }
-  }
-  button {
-    cursor: pointer;
-    background-color: $pink;
-    color: $red;
-    font-family: $p-font;
-    height: 20px;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    margin: 5px;
-  }
-  label {
-    padding: 40px 0 20px 0;
+    button {
+      cursor: pointer;
+      background-color: $pink;
+      color: $red;
+      border: 2px $red solid;
+      height: 20px;
+      width: 115px;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+    }
+    .sort {
+      width: 100px;
+      font-size: 12px;
+    }
+    button:hover {
+      background-color: $red;
+      color: $pink;
+      border: 2px $red solid;
+      transform: scale(1.1);
+    }
+    label {
+      padding: 40px 0 20px 0;
+      font-family: $h1-font;
+      font-size: 40px;
+    }
+
+    input {
+      background-color: $lightpink;
+      color: $red;
+      font-family: $p-font;
+      font-size: 25px;
+      border: $red 2px solid;
+      border-radius: 10px;
+      height: 40px;
+      width: 250px;
+      display: flex;
+      text-align: center;
+      margin: 5px;
+    }
+
+    input:focus {
+      color: $red;
+    }
+
+    .todoinput::placeholder {
+      color: $purple;
+    }
+
+    select {
+      margin: 10px;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: $red;
+      font-family: $p-font;
+      color: $pink;
+      border: none;
+      font-size: 15px;
+      width: 150px;
+    }
   }
 
-  input {
-    background-color: $pink;
-    color: $green;
-    font-family: $p-font;
-    font-size: 25px;
-    border: $yellow 2px solid;
-    border-radius: 10px;
-    height: 40px;
-    width: 250px;
-    display: flex;
-    text-align: center;
-  }
-
-  .todoinput::placeholder {
-    color: $red;
-  }
-
-  select {
-    // appearance: none;
-    margin: 5px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: $pink;
-    font-family: $p-font;
-    color: $red;
-    font-size: 15px;
-  }
-  .prioone {
-    color: red;
-  }
-
-  .priotwo {
-    color: aqua;
-  }
-
-  .priothree {
-    color: green;
+  h2 {
+    font-family: $h1-font;
+    font-size: 40px;
   }
 
   ul {
@@ -92,14 +115,26 @@ main {
       font-size: 22px;
       margin-top: 15px;
       cursor: pointer;
+      display: flex;
       a {
         padding-left: 15px;
         cursor: pointer;
       }
     }
-  }
-  #checked {
-    text-decoration: line-through;
-    color: grey;
+    #checked {
+      text-decoration: line-through;
+      color: grey;
+    }
+    .prioone {
+      color: $red;
+    }
+
+    .priotwo {
+      color: $blue;
+    }
+
+    .priothree {
+      color: $green;
+    }
   }
 }

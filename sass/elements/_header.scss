@@ -1,5 +1,5 @@
 header {
-  background-color: $blue;
+  background-color: $pink;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,14 +8,15 @@ header {
   h1 {
     font-family: $h1-font;
     font-size: 40px;
-    color: $pink;
+    color: $red;
     margin: 0 10px;
+    text-align: center;
 
     @include for-tablet-landscape-up {
-      font-size: 90px;
+      font-size: 60px;
     }
     @include for-desktop-up {
-      font-size: 90px;
+      font-size: 80px;
     }
   }
 }

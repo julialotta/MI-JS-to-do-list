@@ -1,4 +1,3 @@
-// skapandet av HTML.
 let header = document.createElement("header");
 document.body.appendChild(header);
 let headline = document.createElement("h1");
@@ -8,21 +7,27 @@ headline.innerHTML = "Stuff I need to do today";
 let main = document.createElement("main");
 document.body.appendChild(main);
 
-
 let divContainer = document.createElement("div");
 main.appendChild(divContainer);
 divContainer.className = "container";
 
+let innerContainer = document.createElement("div");
+divContainer.appendChild(innerContainer);
+innerContainer.className = "innercontainer";
+
 let div = document.createElement("div");
-divContainer.appendChild(div);
+innerContainer.appendChild(div);
 
 let label = document.createElement("label");
 div.appendChild(label);
-label.innerHTML = "TO DO:";
+label.innerHTML = "Go on and get some structure in your life!";
 label.setAttribute("for", "todoinput");
 
+let form = document.createElement("form");
+div.appendChild(form);
+
 let input = document.createElement("input");
-div.appendChild(input);
+form.appendChild(input);
 input.id = "todoinput";
 input.className ="todoinput";
 input.type ="text";
@@ -49,20 +54,22 @@ prio.appendChild(priothree);
 
 let addbutton = document.createElement("button");
 div.appendChild(addbutton);
-addbutton.innerHTML = "Add to list";
+addbutton.innerHTML = "+ add to list";
 addbutton.id = "add";
 
 let sortbutton = document.createElement("button");
 div.appendChild(sortbutton);
-sortbutton.innerHTML= "Sort by prio";
+sortbutton.innerHTML= "sort by prio";
 sortbutton.id = "sort";
+sortbutton.className = "sort";
 
-let h2 = document.createElement("h2");
-divContainer.appendChild(h2);
-h2.innerHTML = "My list:";
+
+let h3 = document.createElement("h2");
+innerContainer.appendChild(h3);
+h3.innerHTML = "TO DO:";
 
 let ul = document.createElement("ul");
-divContainer.appendChild(ul);
+innerContainer.appendChild(ul);
 ul.className = "list";
 ul.id = "list";
 
@@ -74,7 +81,6 @@ footer.appendChild(footerP);
 footerP.innerHTML = "This app is created by Julia-Lotta";
 
 
-//Skapandet av klasser
 
 class Todos {
     constructor (task, checked, prio) {
@@ -122,11 +128,11 @@ function createHtml() {
             p.id = "checked";
         }
         if (list[i].prio == 1) {
-            p.className = "prioone";
+            li.className = "prioone";
         } if (list[i].prio == 2) {
-            p.className = "priotwo";
+            li.className = "priotwo";
         } if (list[i].prio == 3) {
-            p.className = "priothree";
+            li.className = "priothree";
         }
         p.innerHTML += list[i].task;
         li.appendChild(cross);
