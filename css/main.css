@@ -44,9 +44,6 @@ main .container {
   margin: 50px;
   padding: 50px;
 }
-main .todoinput::placeholder {
-  color: #ee4038;
-}
 main div div {
   display: flex;
   justify-content: center;
@@ -59,11 +56,12 @@ main button {
   cursor: pointer;
   background-color: #f59db5;
   color: #ee4038;
+  font-family: "Zen Kurenaido", sans-serif;
   height: 20px;
   border: none;
   border-radius: 10px;
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   margin: 5px;
@@ -83,9 +81,17 @@ main input {
   display: flex;
   text-align: center;
 }
-main #checked {
-  text-decoration: line-through;
-  color: grey;
+main .todoinput::placeholder {
+  color: #ee4038;
+}
+main select {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #f59db5;
+  font-family: "Zen Kurenaido", sans-serif;
+  color: #ee4038;
+  font-size: 15px;
 }
 main .prioone {
   color: red;
@@ -104,6 +110,10 @@ main ul li {
 main ul li a {
   padding-left: 15px;
   cursor: pointer;
+}
+main #checked {
+  text-decoration: line-through;
+  color: grey;
 }
 
 footer {

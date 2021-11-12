@@ -20,10 +20,6 @@ main {
     padding: 50px;
   }
 
-  .todoinput::placeholder {
-    color: $red;
-  }
-
   div {
     div {
       display: flex;
@@ -38,11 +34,12 @@ main {
     cursor: pointer;
     background-color: $pink;
     color: $red;
+    font-family: $p-font;
     height: 20px;
     border: none;
     border-radius: 10px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     margin: 5px;
@@ -64,11 +61,20 @@ main {
     text-align: center;
   }
 
-  #checked {
-    text-decoration: line-through;
-    color: grey;
+  .todoinput::placeholder {
+    color: $red;
   }
 
+  select {
+    // appearance: none;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: $pink;
+    font-family: $p-font;
+    color: $red;
+    font-size: 15px;
+  }
   .prioone {
     color: red;
   }
@@ -91,5 +97,9 @@ main {
         cursor: pointer;
       }
     }
+  }
+  #checked {
+    text-decoration: line-through;
+    color: grey;
   }
 }

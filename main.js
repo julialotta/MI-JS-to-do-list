@@ -27,21 +27,17 @@ input.id = "todoinput";
 input.className ="todoinput";
 input.type ="text";
 input.placeholder = "write stuff here..."
-let labelforprio = document.createElement("label");
-labelforprio.for = "prioinput";
-labelforprio.innerHTML = "Add prio, 1-3";
-div.appendChild(labelforprio);
 let prio = document.createElement("select");
 div.appendChild(prio);
 prio.id = "prioinput";
 let priozero = document.createElement("option");
-priozero.innerHTML = "select importance";
+priozero.innerHTML = "Pick priority";
 let prioone = document.createElement("option");
-prioone.innerHTML = "Very important";
+prioone.innerHTML = "Oh, very important";
 let priotwo = document.createElement("option");
-priotwo.innerHTML = "A little bit important";
+priotwo.innerHTML = "Hmm, might be important";
 let priothree = document.createElement("option");
-priothree.innerHTML = "Not that important...";
+priothree.innerHTML = "Mja, not that important...";
 prioone.value = "1";
 priotwo.value = "2";
 priothree.value = "3";
@@ -157,8 +153,8 @@ updateLocalStorage();
 
 
 function addToList() {
-        if ((input.value.length == 0) || (prio.value == "select importance") ) {
-            alert("Du har inte fyllt i korrekt");
+        if ((input.value.length == 0) || (prio.value == "Pick priority") ) {
+            alert("Make sure to write something and to pick priority");
         } else {
     let newTask = input.value;
     let listObject = new Todos (newTask);
@@ -175,7 +171,7 @@ function addToList() {
 
     list.push(listObject);
     input.value = "";
-    prio.value = "";
+    prio.value = "Pick priority"
     updateLocalStorage ();
 }
 }
