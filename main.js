@@ -1,3 +1,5 @@
+function createLayout () {
+
 let header = document.createElement("header");
 document.body.appendChild(header);
 let headline = document.createElement("h1");
@@ -32,24 +34,29 @@ input.id = "todoinput";
 input.className ="todoinput";
 input.type ="text";
 input.placeholder = "write stuff here..."
+input.addEventListener("keydown", pressEnter);
+
 let prio = document.createElement("select");
 div.appendChild(prio);
 prio.id = "prioinput";
+
 let priozero = document.createElement("option");
 priozero.innerHTML = "Pick priority";
+prio.appendChild(priozero);
+
 let prioone = document.createElement("option");
 prioone.innerHTML = "Oh, very important";
+prioone.value = "1";
+prio.appendChild(prioone);
+
 let priotwo = document.createElement("option");
 priotwo.innerHTML = "Hmm, might be important";
+priotwo.value = "2";
+prio.appendChild(priotwo);
+
 let priothree = document.createElement("option");
 priothree.innerHTML = "Mja, not that important...";
-prioone.value = "1";
-priotwo.value = "2";
 priothree.value = "3";
-
-prio.appendChild(priozero);
-prio.appendChild(prioone);
-prio.appendChild(priotwo);
 prio.appendChild(priothree);
 
 let addbutton = document.createElement("button");
@@ -71,7 +78,7 @@ h3.innerHTML = "TO DO:";
 let ul = document.createElement("ul");
 innerContainer.appendChild(ul);
 ul.className = "list";
-ul.id = "list";
+ul.id = "ullist";
 
 
 let footer = document.createElement("footer");
@@ -79,8 +86,9 @@ document.body.appendChild(footer);
 let footerP = document.createElement("p");
 footer.appendChild(footerP);
 footerP.innerHTML = "This app is created by Julia-Lotta";
+}
 
-
+createLayout ();
 
 class Todos {
     constructor (task, checked, prio) {
@@ -90,18 +98,18 @@ class Todos {
     }
 }
 
-let task1 = new Todos ("Vara snäll", false, 1);
-let task2 = new Todos ("Mata katten", false, 1);
-let task3 = new Todos ("Koka kaffe", false, 1);
+let task1 = new Todos ("Something reeaaally important", false, 1);
+let task2 = new Todos ("Something some what important...", false, 2);
+let task3 = new Todos ("Something not that important", false, 3);
 
 let list = JSON.parse(localStorage.getItem("savedList")) || [task1, task2, task3];
 
-// Anropningar av funktioner:
 
 let add = document.getElementById("add");
 add.addEventListener("click", addToList);
+//let sort = document.getElementById("");
 sort.addEventListener("click", sortList);
-input.addEventListener("keydown", pressEnter);
+
 
 createHtml();
 
@@ -115,6 +123,7 @@ function pressEnter (e) {
 
 
 function createHtml() {
+    let ul = document.getElementById("ullist");
     ul.innerHTML= "";
     for (let i = 0; i < list.length; i++) {
         let li = document.createElement("li");
@@ -148,7 +157,6 @@ function createHtml() {
 
 function checkItem (i) {
     list[i].checked = !list[i].checked;
-    console.log(list[i].checked);
     updateLocalStorage();
 }
 
@@ -159,6 +167,8 @@ updateLocalStorage();
 
 
 function addToList() {
+    let input = document.getElementById("todoinput");
+    let prio = document.getElementById("prioinput");
         if ((input.value.length == 0) || (prio.value == "Pick priority") ) {
             alert("Make sure to write something and to pick priority");
         } else {
@@ -198,9 +208,3 @@ function updateLocalStorage () {
     localStorage.setItem("savedList", listastext);  
     createHtml();
 }
-
-
-
-// att göra:
-// - strukturera i projeketet, selectors, event listeners och functios var för sig... 
-// fixa design
