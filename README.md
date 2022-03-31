@@ -1,7 +1,7 @@
 # To do App with JavaScript
 My first JavaScript project. Individual assignment at Medieinstitutet to create a To do list with JavaScript.
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 
 ## Installation
