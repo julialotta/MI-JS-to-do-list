@@ -6,7 +6,7 @@ My first JavaScript project. Individual assignment at Medieinstitutet to create 
 
 ## Installation
 1. Clone the repo\
-`git clone https://github.com/julialotta/MI-AgilaMetoder-StadaFintAB`
+`git clone https://github.com/julialotta/MI-JavaScript-TodoApp`
 
 2. Install npm packages\
 `npm install`
